@@ -1,0 +1,49 @@
+<StackLayout class="Whole">
+
+    <GridLayout columns=*,100 class="filters">
+    <!-- <GridLayout columns=* class="filters"> -->
+        <!-- <Label text="filters"></Label> -->
+        <TextField hint="Search" [(ngModel)]="query" [text]="query" (returnPress)="onReturnPress($event)"></TextField>
+        <Button col="1" text="Search" (tap)="reset()"></Button>
+    </GridLayout>
+
+    <ListView [items]="events" height="100%">
+        <StackLayout class="eventBox">
+
+            <ng-template let-item="item">
+
+                <StackLayout class="event">
+
+                    <GridLayout columns="*,100">
+
+                        <StackLayout col="0">
+
+                            <Label class="eventinfo title" textWrap="true" [text]="item.title"></Label>
+                            <Label class="eventinfo" textWrap="true" [text]="item.date"></Label>
+                            <Label class="eventinfo" textWrap="true" [text]="item.time"></Label>
+                            <Label class="eventinfo" textWrap="true" [text]="item.location"></Label>
+                            <Label class="eventinfo description" textWrap="true" [text]="item.description"></Label>
+
+                            <Label class="eventinfo createdBy" textWrap="true" [text]="'Created by ' + item.createdBy"
+                                (tap)="getUser(item.createdBy)"></Label>
+
+                        </StackLayout>
+
+                        <StackLayout class="btns" col="1">
+
+                            <Button class="btn going" text="I'm Going" (tap)="imGoing(item)"></Button>
+                            <Button class="btn learn" text="Morec" (tap)="learnMore(item)"></Button>
+                            <!-- <Button class="btn report" text="Report"></Button> -->
+
+                        </StackLayout>
+
+                    </GridLayout>
+
+                </StackLayout>
+
+            </ng-template>
+
+        </StackLayout>
+    </ListView>
+
+</StackLayout>

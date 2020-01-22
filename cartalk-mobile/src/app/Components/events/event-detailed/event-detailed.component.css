@@ -1,0 +1,29 @@
+
+.item {
+    height: 90%;
+}
+.info {
+    color: black;
+}
+.title {
+    font-size: 20px;
+}
+.btn {
+    margin: 0;
+    color: white;
+}
+.going {
+    background-color: rgb(87, 214, 87);
+}
+.learn {
+    background-color: rgb(112, 112, 255);
+}
+.report {
+    background-color:  rgb(255, 94, 94);
+}
+.reveal-info {
+    color: red;
+}
+.info-grid {
+    margin: 5;
+}

@@ -1,0 +1,38 @@
+<!-- <StackLayout>
+  <TextField [(ngModel)]="model.eventLat" hint="eventLat"></TextField>
+  <TextField [(ngModel)]="model.eventLng" hint="eventLng"></TextField>
+  <TextField [(ngModel)]="model.title" hint="title"></TextField>
+  <TextField [(ngModel)]="model.hostName" hint="hostName"></TextField>
+  <TextField [(ngModel)]="model.address" hint="address"></TextField>
+  <TextField [(ngModel)]="model.location" hint="location"></TextField>
+  <TextField [(ngModel)]="model.date" hint="date"></TextField>
+  <TextField [(ngModel)]="model.revealDate" hint="revealDate"></TextField>
+  <TextField [(ngModel)]="model.time" hint="time"></TextField>
+  <TextField [(ngModel)]="model.description" hint="description"></TextField>
+  <TextField [(ngModel)]="model.photoUrl" hint="photoUrl"></TextField>
+  <Button text="Create Event"
+  (tap)="createEvent()"
+  ></Button>
+</StackLayout> -->
+
+<StackLayout>
+  <TextField [(ngModel)]="model.eventLat" hint="eventLat"></TextField>
+  <TextField [(ngModel)]="model.eventLng" hint="eventLng"></TextField>
+  <TextField [(ngModel)]="model.title" hint="title"></TextField>
+  <TextField [(ngModel)]="model.hostName" hint="hostName"></TextField>
+  <!-- <TextField [(ngModel)]="model.address" hint="address"></TextField>
+  <TextField [(ngModel)]="model.location" hint="location"></TextField>
+  <TextField [(ngModel)]="model.date" hint="date"></TextField>
+  <TextField [(ngModel)]="model.revealDate" hint="revealDate"></TextField>
+  <TextField [(ngModel)]="model.time" hint="time"></TextField>
+  <TextField [(ngModel)]="model.description" hint="description"></TextField>
+  <TextField [(ngModel)]="model.photoUrl" hint="photoUrl"></TextField> -->
+  <Button text="Create Event"
+  (tap)="createEvent(
+    model.eventLat,
+    model.eventLng,
+    model.title,
+    model.hostName
+  )"
+  ></Button>
+</StackLayout>

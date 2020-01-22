@@ -1,0 +1,86 @@
+<StackLayout>
+
+    <StackLayout>
+        <!-- COMMUNITY INFORMATION -->
+        <StackLayout class="baseCommunity" *ngFor="let item of baseCommunity" height="50%">
+
+            <StackLayout>
+
+                <Image *ngIf="baseCommunity" src="~/app/_assets/no-image-found.jpg"></Image>
+                <Label class="title" text="{{item.communityName}}"></Label>
+                <Label class="slogan" text="{{item.slogan}}"></Label>
+
+            </StackLayout>
+
+            <!-- <ng-template let-item="item">
+
+                <StackLayout>
+
+                    <Image *ngIf="baseCommunity" src="~/app/_assets/no-image-found.jpg"></Image>
+                    <Label class="title" [text]="item.communityName"></Label>
+                    <Label class="slogan" [text]="item.slogan"></Label>
+
+                </StackLayout>
+
+            </ng-template> -->
+
+        </StackLayout>
+
+        <!-- POSTS -->
+
+        <StackLayout class="posts-outline">
+
+            <ListView [items]="posts" class="posts" *ngIf="posts">
+
+                <ng-template let-item="item">
+
+                    <StackLayout class="item" (tap)="getReplies(item)">
+
+                        <StackLayout>
+
+                            <Label textWrap="true" class="community-name" [text]="item.title"></Label>
+                            <Label textWrap="true" class="slogan" [text]="item.text"></Label>
+                            <Label textWrap="true" class="" [text]="item.postedBy"></Label>
+
+                            <StackLayout *ngIf="showReplies === 'true'">
+
+                                <Label text="{{replies.reply}}"></Label>
+
+                                <!-- <ListView [items]="replies" class="replies">
+
+                                    <ng-template let-item="replies">
+
+                                        <StackLayout>
+
+                                            <Label [text]="replies.reply"></Label>
+
+                                        </StackLayout>
+
+                                    </ng-template>
+
+                                </ListView> -->
+
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </ng-template>
+
+            </ListView>
+
+            <StackLayout *ngIf="!posts">
+
+                <Label textWrap="true" text="It looks emdpty in here!"></Label>
+                <Label textWrap="true" text="Tap below and start talking"></Label>
+                <Button text="Post"></Button>
+
+            </StackLayout>
+
+        </StackLayout>
+
+    </StackLayout>
+
+</StackLayout>

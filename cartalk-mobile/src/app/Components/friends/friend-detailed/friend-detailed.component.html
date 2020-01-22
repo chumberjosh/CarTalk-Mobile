@@ -1,0 +1,41 @@
+<ns-action-bar>
+    <Label *ngIf="canGoBack" text="back"></Label>
+</ns-action-bar>
+
+<StackLayout>
+
+    <StackLayout class="whole">
+
+        <StackLayout class="content">
+
+            <StackLayout class="obj">
+
+                <StackLayout class="img">
+                    <Image src="~/app/_assets/user.png"></Image>
+                </StackLayout>
+
+                <label textWrap="true" horizontalAlignment="center" class="name" [text]="friend.name"></label>
+                <label textWrap="true" class="bio" [text]="friend.bio"></label>
+
+            </StackLayout>
+
+            <StackLayout columns="*,*" class="social-media">
+                <label horizontalAlignment="center" textWrap="true" class="social" [text]="friend.socialmedia"
+                    (tap)="goToUrl(friend.socialmedia)"></label>
+            </StackLayout>
+
+            <GridLayout columns="*,*,*" class="btns">
+                <Button class="msg" col="0" text="message"></Button>
+                <Button class="add-friend" col="1" text="add friend"></Button>
+                <Button class="report" col="2" text="report"></Button>
+            </GridLayout>
+
+        </StackLayout>
+
+    </StackLayout>
+
+    <StackLayout>
+        <ns-bottom-nav></ns-bottom-nav>
+    </StackLayout>
+
+</StackLayout>

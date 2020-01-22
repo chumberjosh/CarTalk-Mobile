@@ -1,0 +1,33 @@
+@import "/events.ios.css";
+
+.eventinfo {
+  margin-left: 5;
+  color: black;
+  text-transform: capitalize;
+}
+.btn {
+  margin: 0;
+  color: white;
+}
+.going {
+  background-color: rgb(87, 214, 87);
+}
+.learn {
+  background-color: rgb(112, 112, 255);
+}
+.report {
+  background-color: rgb(255, 94, 94);
+}
+.filters {
+  height: 50;
+}
+.title {
+  font-size: 20px;
+}
+.createdBy {
+  margin-top: 15;
+  color: red;
+}
+.btns {
+  margin-top: 25;
+}

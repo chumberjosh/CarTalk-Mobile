@@ -1,0 +1,19 @@
+<StackLayout>
+
+  <ListView [items]="communities" height="100%">
+
+    <ng-template let-item="item">
+
+      <StackLayout class="item" (tap)="goToCommunity(item)">
+
+        <Label textWrap="true" class="community-name" [text]="item.communityName"></Label>
+        <Label textWrap="true" class="slogan" [text]="item.slogan"></Label>
+        <Label textWrap="true" class="" [text]="item.location"></Label>
+
+      </StackLayout>
+
+    </ng-template>
+
+  </ListView>
+
+</StackLayout>

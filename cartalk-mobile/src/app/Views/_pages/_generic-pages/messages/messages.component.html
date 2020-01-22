@@ -1,0 +1,26 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout>
+
+  <ListView [items]="messages" height="100%">
+
+    <ng-template let-item="item">
+
+      <StackLayout class="msgs">
+
+        <StackLayout *ngIf="item.readByUser === 'false'" class="unread" (tap)="goToConversation(item)">
+          <Label class="msg" [text]="item.message"></Label>
+          <Label [text]="item.senderName"></Label>
+        </StackLayout>
+
+        <StackLayout *ngIf="item.readByUser === 'true'" class="read" (tap)="goToConversation(item)">
+          <Label class="msg" [text]="item.message"></Label>
+          <Label [text]="item.senderName"></Label>
+        </StackLayout>
+
+      </StackLayout>
+
+    </ng-template>
+
+  </ListView>
+
+</StackLayout>

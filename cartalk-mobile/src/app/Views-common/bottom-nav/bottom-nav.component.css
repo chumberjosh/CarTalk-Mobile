@@ -1,0 +1,11 @@
+.item {
+  height: 70%;
+  border: 5px, solid, black;
+}
+.border {
+  background-color: black;
+  height: 3;
+}
+.whole {
+  background-color: white;
+}

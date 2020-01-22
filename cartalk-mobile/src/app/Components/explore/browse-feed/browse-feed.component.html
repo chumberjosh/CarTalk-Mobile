@@ -1,0 +1,150 @@
+<!-- Android Code BELOW -->
+
+<StackLayout *ngIf="isAndroid">
+
+    <ListView [items]="feeds.slice(start, end)" height="95%">
+        <!-- <ListView [items]="feeds" height="95%"> -->
+
+        <ng-template let-item="item">
+
+            <StackLayout class="whole-feed">
+
+                <StackLayout class="conditional">
+
+                    <StackLayout *ngIf="item.type === 'post' && item.photoUrl" class="feed">
+
+                        <Image *ngIf="item.show === 'false'" decodeWidth="80" decodeHeight="80" [src]="item.photoUrl"
+                            (tap)="showFullQuality(item)"></Image>
+                        <Image *ngIf="item.show === 'true'" [src]="item.photoUrl"></Image>
+
+                        <Label *ngIf="item.sponsored === 'yes'" col="1" id="learnmore" text="Learn More"
+                            (tap)="goToUrl(item.link)"></Label>
+
+                        <GridLayout class="like-sect" columns="*,*" (tap)="like(item)">
+                            <Image class="like" col="0" src="~/app/_assets/ui-images/like.png"></Image>
+                            <Label col="1" class="likes" [text]="item.likes"></Label>
+                        </GridLayout>
+
+                        <Label *ngIf="item.sponsored === 'yes'" textWrap="true" class="caption-sponsored"
+                            [text]="item.caption"></Label>
+
+                        <Label *ngIf="item.sponsored === 'yes'" row="0" class="sponsored"
+                            [text]="'Sponsored by ' + item.createdBy"></Label>
+
+                        <Label *ngIf="item.sponsored === ''" textWrap="true" class="caption"
+                            [text]="item.caption"></Label>
+
+                        <GridLayout *ngIf="item.sponsored === ''" class="created-sect" (tap)="like(item)">
+                            <Label textWrap="true" col="0" class="createdBy"
+                                [text]="item.createdBy + ' | ' + item.dateCreated"></Label>
+                        </GridLayout>
+
+                    </StackLayout>
+
+                </StackLayout>
+
+                <StackLayout *ngIf="item.type === 'event'" class="event">
+
+                    <GridLayout columns="*,100">
+
+                        <StackLayout col="0">
+
+                            <Label class="eventinfo title" textWrap="true" [text]="item.title"></Label>
+                            <Label class="eventinfo" textWrap="true" [text]="item.date"></Label>
+                            <Label class="eventinfo" textWrap="true" [text]="item.time"></Label>
+                            <Label class="eventinfo" textWrap="true" [text]="item.location"></Label>
+                            <Label class="eventinfo description" textWrap="true" [text]="item.description"></Label>
+
+                        </StackLayout>
+
+                        <StackLayout col="1">
+
+                            <Button class="btn going" text="I'm Going" (tap)="imGoing(item)"></Button>
+                            <Button class="btn learn" text="More" (tap)="learnMore(item)"></Button>
+                            <Button class="btn report" text="Report"></Button>
+
+                        </StackLayout>
+
+                    </GridLayout>
+
+                </StackLayout>
+
+                <StackLayout *ngIf="item.type === 'video'" class="event" (tap)="showVideo(item.videoUrl)">
+
+                    <StackLayout>
+
+                        <!-- on Android the video wont load until it is displayed on the screen (Need to make this work properly)  -->
+                        <VideoPlayer [src]="item.videoUrl" autoplay="true" muted="true" height="300"></VideoPlayer>
+
+                        <!-- <Image *ngIf="item.show === 'false'" [src]="item.photoUrl" (tap)="showFullQuality(item)">
+                        </Image>
+                        <VideoPlayer *ngIf="item.show === 'true'" [src]="item.videoUrl" height="220" autoPlay="true">
+                        </VideoPlayer> -->
+                        <Label [text]="item.caption" textWrap="true" class="eventinfo"></Label>
+                        <Label [text]="item.createdBy + ' | ' + item.dateCreated"></Label>
+
+
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+        </ng-template>
+
+    </ListView>
+
+    <GridLayout columns="*,*">
+        <Button class="btn" col="0" text="Previous Page" (tap)='previousPage()'></Button>
+        <Button class="btn" col="1" text="Next Page" (tap)='nextPage()'></Button>
+    </GridLayout>
+
+</StackLayout>
+
+
+<!-- Android CODE ENDS -->
+<!-- iOS CODE BELOW -->
+
+
+<StackLayout *ngIf="isIos">
+
+    <ListView [items]="feeds" height="100%">
+
+        <ng-template let-item="item">
+
+            <StackLayout>
+
+                <Image *ngIf="item.type === 'post'" height="250" [src]="item.photoUrl"></Image>
+                <!-- <Image *ngIf="item.type === 'video'" src="~/app/_assets/generic/load-video.png" (tap)="loadVideoIOS()"></Image> -->
+                <VideoPlayer muted="true" *ngIf="item.type === 'video'" [src]="item.videoUrl" autoplay="true"
+                    height="300">
+                </VideoPlayer>
+                <Label textWrap="true" [text]="item.caption"></Label>
+                <Label textWrap="true" [text]="item.createdBy"></Label>
+                <Label textWrap="true" [text]="item.likes"></Label>
+                <Label textWrap="true" class="info" *ngIf="item.type === 'video'"
+                    text="Stop video before scrolling"></Label>
+
+            </StackLayout>
+
+            <!-- <StackLayout *ngIf="item.type === 'video'" class="event">
+
+                <StackLayout>
+
+                    <Image *ngIf="item.show === 'false'" src="~/app/_assets/generic/load-video.png"
+                        (tap)="showFullQuality(item)">
+                    </Image>
+                    <VideoPlayer *ngIf="item.show === 'true'" [src]="item.videoUrl" autoplay="true" height="300">
+                    </VideoPlayer>
+                    <Label [text]="item.caption" class="eventinfo"></Label>
+                    <Label [text]="item.createdBy"></Label>
+
+                </StackLayout>
+
+            </StackLayout> -->
+
+        </ng-template>
+
+    </ListView>
+
+</StackLayout>

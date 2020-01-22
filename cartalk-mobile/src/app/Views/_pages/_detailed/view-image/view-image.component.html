@@ -1,0 +1,17 @@
+<ns-action-bar>
+  <Label *ngIf="canGoBack" text="back"></Label>
+</ns-action-bar>
+
+<StackLayout>
+
+  <StackLayout>
+    <GridLayout columns="25,50,*" height="10%" (tap)="goToUser(user)">
+      <Image col="1" class="user-img" height="80%" [src]="user.photoUrl"></Image>
+      <Label col="2" class="username" [text]="user.username"></Label>
+    </GridLayout>
+    <Image [src]="image.photoUrl"></Image>
+    <Label textWrap="true" [text]="'Likes ' + image.likes" (tap)="likeItem()"></Label>
+    <Label textWrap="true" [text]="image.description"></Label>
+  </StackLayout>
+
+</StackLayout>

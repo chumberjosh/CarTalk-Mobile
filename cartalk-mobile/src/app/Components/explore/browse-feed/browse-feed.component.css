@@ -1,0 +1,75 @@
+
+.filters {
+    height: 50;
+  }
+  .showMore {
+    height: 20;
+  }
+  .feed {
+    margin: 10;
+  }
+  .like-sect {
+    width: 50;
+  }
+  .like {
+    height: 15;
+  }
+  .caption {
+    color: black;
+    font-size: 15;
+  }
+  .eventinfo {
+    margin-left: 5;
+    color: black;
+    text-transform: capitalize;
+  }
+  .btn {
+    margin: 0;
+    color: white;
+  }
+  .going {
+    background-color: rgb(87, 214, 87);
+  }
+  .learn {
+    background-color: rgb(112, 112, 255);
+  }
+  .report {
+    background-color: rgb(255, 94, 94);
+  }
+  .event {
+    padding: 5%;
+  }
+  .filters {
+    height: 50;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .sponsored {
+    font-weight: bold;
+    margin-top: 5;
+    margin-bottom: 5;
+  }
+  .caption-sponsored {
+    color: red;
+    font-size: 15;
+  }
+  #learnmore {
+    border-color: black;
+    border-width: 3;
+    background-color: white;
+    padding: 5;
+    color: black;
+    background-color: rgb(238, 238, 238);
+  }
+  .caption-title {
+    font-size: 17;
+  }
+  .no-img-cap {
+    border-top: 5;
+    border-bottom: 5;
+    color: black;
+  }
+  .info {
+    color: red;
+  }

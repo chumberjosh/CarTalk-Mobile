@@ -1,0 +1,50 @@
+<StackLayout>
+
+
+  <StackLayout class="whole">
+
+
+    <StackLayout class="wholePage">
+
+      <ScrollView>
+
+        <StackLayout>
+
+          <StackLayout class="topsect">
+
+            <StackLayout class="inputs">
+              <Label *ngIf="email == null" class="error" text="Email is required"></Label>
+              <TextField hint="Email" [(ngModel)]="email"></TextField>
+              <Label *ngIf="password == null" class="error" text="Password is required"></Label>
+              <TextField hint="Password" [(ngModel)]="password"></TextField>
+
+              <Button (tap)="login(email, password)" *ngIf="mode == 'login'" class="login" text="log in"></Button>
+              <Button (tap)="signup(email, password)" *ngIf="mode == 'signup'" class="login"
+                text="Create an account"></Button>
+
+              <Label *ngIf="mode == 'login'" (tap)="forgotpassword()" class="forgotpass" text="Forgot Password"></Label>
+
+            </StackLayout>
+
+          </StackLayout>
+
+          <StackLayout class="bottomsect">
+            <Button (tap)="skip()" class="skip" text="Skip"></Button>
+            <Label *ngIf="mode == 'login'" (tap)="changeToLogin()" class="forgotpass"
+              text="Dont have an account? Create one."></Label>
+            <Label *ngIf="mode == 'signup'" (tap)="changeToRegister()" class="forgotpass"
+              text="Already have an account? Log in"></Label>
+          </StackLayout>
+
+        </StackLayout>
+
+      </ScrollView>
+
+    </StackLayout>
+
+  </StackLayout>
+
+  <!-- <StackLayout/>
+    <ns-bottom-nav></ns-bottom-nav>
+  </StackLayout> -->
+</StackLayout>

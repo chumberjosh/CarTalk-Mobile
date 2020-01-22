@@ -1,0 +1,10 @@
+.username {
+  font-weight: bold;
+  font-size: 50;
+  margin-left: 20;
+}
+.user-img {
+  border-radius: 100%;
+  border-color: black;
+  border-width: 1;
+}

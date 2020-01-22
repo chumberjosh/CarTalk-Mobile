@@ -1,0 +1,12 @@
+<StackLayout class="whole">
+  <StackLayout class="border"></StackLayout>
+  <GridLayout rows="*" columns="*,*,*,*,*">
+    <Image row="1" col="0" (tap)="goTo('home')" [src]="home" class="item"></Image>
+    <Image row="1" col="1" (tap)="goTo('explore')"  [src]="explore" class="item"></Image>
+    <Image row="1" col="2" (tap)="goTo('add')" [src]="add" class="item"></Image>
+    <Image row="1" col="3" (tap)="goTo('communities')" [src]="communities" class="item"></Image>
+    <Image row="1" col="4" (tap)="goTo('my-profile')" [src]="profile" class="item"></Image>
+    <!-- <Label column="0" row="0" text="home"></Label> -->
+  </GridLayout>
+  <!-- <Image col="0" src="~/app/_assets/nav-buttons/inactive/home.png" class="item"></Image> -->
+</StackLayout>

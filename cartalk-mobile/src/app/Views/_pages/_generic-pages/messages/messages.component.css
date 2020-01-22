@@ -1,0 +1,10 @@
+.msgs {
+  margin: 5;
+}
+.msg {
+  color: black;
+  font-size: 20;
+}
+.unread {
+  background-color: rgb(226, 226, 226);
+}

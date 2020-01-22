@@ -1,0 +1,66 @@
+<ns-action-bar></ns-action-bar>
+
+<StackLayout>
+    <StackLayout class="whole">
+
+        <StackLayout class="whole-item">
+
+            <StackLayout class="item">
+                <Image [src]="event.photoUrl"></Image>
+                <Label class="info title" horizontalAlignment="center" textWrap="true" [text]="event.title"></Label>
+                <ScrollView>
+
+                    <GridLayout columns="150,*" rows="*,*,*,*,*,*,*,*,*">
+
+                        <Label class="info-grid" col="0" textWrap="true" row="0" text="City"></Label>
+                        <Label class="info-grid" col="0" textWrap="true" row="1" text="Host Name"></Label>
+                        <Label class="info-grid" col="0" textWrap="true" row="2" text="address"></Label>
+                        <Label class="info-grid" col="0" textWrap="true" row="3" text="createdBy"></Label>
+                        <Label class="info-grid" col="0" textWrap="true" row="4" text="date"></Label>
+                        <Label class="info-grid" col="0" textWrap="true" row="5" text="time"></Label>
+                        <Label class="info-grid" col="0" textWrap="true" row="6" text="description"></Label>
+                        <Label class="info-grid" col="0" textWrap="true" row="7" text="revealdate"></Label>
+                        <Label class="info-grid" col="0" textWrap="true" row="8" text="how many people going?"></Label>
+
+                        <Label class="info-grid" col="1" textWrap="true" row="0" [text]="event.location"></Label>
+                        <Label class="info-grid" col="1" textWrap="true" row="1" [text]="event.hostName"></Label>
+                        <Label *ngIf="locationRevealed === true" class="info-grid" col="1" textWrap="true" row="2"
+                            [text]="event.address"></Label>
+                        <Label *ngIf="locationRevealed === false" class="info-grid reveal-info" col="1" textWrap="true"
+                            row="2" text="Location not yet revealed"></Label>
+                        <Label class="info-grid" col="1" textWrap="true" row="3" [text]="event.createdBy"></Label>
+                        <Label class="info-grid" col="1" textWrap="true" row="4" [text]="event.date"></Label>
+                        <Label class="info-grid" col="1" textWrap="true" row="5" [text]="event.time"></Label>
+                        <Label class="info-grid" col="1" textWrap="true" row="6" [text]="event.description"></Label>
+                        <Label class="info-grid" col="1" textWrap="true" row="7" [text]="event.revealdate"></Label>
+                        <Label class="info-grid" col="1" textWrap="true" row="8" [text]="event.imGoing"></Label>
+
+                    </GridLayout>
+
+                </ScrollView>
+
+            </StackLayout>
+
+            <Label class="reveal-info" *ngIf="locationRevealed === false" text="Location not yet revealed"></Label>
+
+            <GridLayout *ngIf="locationRevealed === true" rows="50" columns="*,*,*">
+
+                <Button col="0" class="btn going" text="I'm Going" (tap)="imGoing(event)"></Button>
+                <Button col="1" class="btn learn" text="View on map" (tap)="viewOnMap(event)"></Button>
+                <Button col="2" class="btn report" text="Report"></Button>
+
+            </GridLayout>
+
+            <GridLayout *ngIf="locationRevealed === false" rows="50" columns="*,*,*">
+
+                <Button col="0" class="btn going" text="I'm Going" (tap)="imGoing(event)"></Button>
+                <Button col="1" class="btn learn" text="Show Location" (tap)="checkRevealDate(event.revealdate)"></Button>
+                <Button col="2" class="btn report" text="Report"></Button>
+
+            </GridLayout>
+
+        </StackLayout>
+
+    </StackLayout>
+
+</StackLayout>

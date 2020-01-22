@@ -1,0 +1,31 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout>
+    <ListView [items]="feeds" height="91%">
+        <ng-template let-item="item" class="feed">
+
+            <StackLayout>
+                <StackLayout>
+                    <GridLayout class="feed-user" columns="50,*,50" (tap)="getUserById(item.userId)">
+                        <Image class="user" [src]="userImg" col="0"></Image>
+                        <Label [text]="item.id" col="1"></Label>
+                        <Label [text]="item.createdById" col="2"></Label>
+                    </GridLayout>
+                    <!-- <Label [text]="item.createdById + ' | ' + item.id" (tap)="getUserById(item)"></Label> -->
+                    <Image *ngIf="item.isImage" class="feed-image" [src]="item.photoUrl"></Image>
+                    <VideoPlayer *ngIf="!item.isImage" [src]="item.photoUrl" autoplay="true" muted="true" height="300">
+                    </VideoPlayer>
+                    <!-- <VideoPlayer *ngIf="!item.isImage" class="feed-image" [src]="item.photoUrl"></VideoPlayer> -->
+                    <Label textWrap="true" [text]="item.caption"></Label>
+                </StackLayout>
+            </StackLayout>
+
+        </ng-template>
+    </ListView>
+
+    <StackLayout style="background-color: rgb(148, 148, 155);">
+        <Label text="next page" (tap)="nextPage()"></Label>
+        <Label [text]="'Current page = ' + pageNumber"></Label>
+        <Label text="previous page" (tap)="previousPage()"></Label>
+    </StackLayout>
+
+</StackLayout>

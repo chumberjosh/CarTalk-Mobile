@@ -1,0 +1,24 @@
+.topSect {
+    height: 30%;
+  }
+  .profile-icon {
+    border-radius: 100%;
+    border-color: black;
+    border-width: 1;
+  }
+  /* .modes {
+      border-color: black;
+      border-width: 0.1;
+  } */
+  .community-name {
+    color: black;
+    font-size: 20;
+  }
+  .communtiy-outer {
+    /* margin: 10; */
+  }
+.username {
+  font-weight: bold;
+  color: black;
+  font-size: 20
+}

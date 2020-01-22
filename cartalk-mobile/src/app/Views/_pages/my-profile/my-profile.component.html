@@ -1,0 +1,62 @@
+<ns-action-bar></ns-action-bar>
+
+<StackLayout>
+
+    <StackLayout>
+
+        <GridLayout columns="150,*" id="topSect" class="topSect" [height]=topSect>
+            <Image class="profile-icon" col="0" height="120" width="120" src="{{currentUser.userPhoto[0].photoUrl}}">
+            </Image>
+            <GridLayout col="1" rows="*,20,*">
+                <GridLayout row="0" rows="20,50" columns="*,*">
+                    <label row="0" col="0" text="{{currentUser.Followers}}"></label>
+                    <label row="0" col="1" text={{currentUser.Following}}></label>
+                    <label row="1" col="0" text="followers"></label>
+                    <label row="1" col="1" text="following"></label>
+                </GridLayout>
+                <Label row="1" text="{{currentUser.Username}}"></Label>
+                <Label row="2" textWrap="true" text="{{currentUser.bio}}"></Label>
+            </GridLayout>
+
+        </GridLayout>
+
+        <StackLayout class="modes">
+            <FlexboxLayout flexWrap="wrap" width="100%">
+                <Label *ngFor="let item of modes" borderColor="white" borderWidth="1" [text]="item.name"
+                    [height]='modeSelectorHeight' [width]='photoHeight' stretch="aspectFill"
+                    (tap)="switchViewMode(item.name)"></Label>
+            </FlexboxLayout>
+        </StackLayout>
+
+        <ScrollView *ngIf="viewMode === 'images'">
+            <FlexboxLayout flexWrap="wrap">
+                <Image *ngFor="let item of testUserImages" borderColor="white" borderWidth="1" [src]="item.src"
+                    [height]='photoWidth' [width]='photoHeight' stretch="aspectFill" (tap)="viewImageDetailed(item)">
+                </Image>
+            </FlexboxLayout>
+        </ScrollView>
+
+        <ScrollView *ngIf="viewMode === 'products'">
+            <FlexboxLayout flexWrap="wrap">
+                <Image *ngFor="let item of testUserProducts" borderColor="white" borderWidth="1" [src]="item.src"
+                    [height]='photoWidth' [width]='photoHeight' stretch="aspectFill"></Image>
+            </FlexboxLayout>
+        </ScrollView>
+
+        <ScrollView *ngIf="viewMode === 'communities'" height="100%">
+            <ListView [items]="joinedCommunities">
+                <ng-template let-item="item">
+                    <StackLayout class="communtiy-outer">
+                        <StackLayout class="communtiy" [height]="tenPercHeight" [margin]="10">
+                            <Label class="community-name" [text]="item.communityName"></Label>
+                            <Label textWrap="true" [text]="item.description"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </ng-template>
+            </ListView>
+        </ScrollView>
+
+    </StackLayout>
+
+</StackLayout>
+<!-- <img src="https://d27qra.am.files.1drv.com/y4mmQdvSQBejmeQoSST6ZJrWoPD_NPkZB6Rq3PNehxsIvbtq040Trec3GaO0dBIY8PMiaxjq3gCWLFDWm9SbO6zpqXgHKvnMgXmR3A1Z5k3cX0ytix7McU0Z3EKg-A8Zd6MztDawRm-Y6IF09OZe7Pp8NtfFLqjSK7RJfVy3c51EjHWKcFoVeeqWnNx-zpneAy1pjH4P1DB7hjkJVaQtL9vCw?width=5334&height=3334&cropmode=none" width="5334" height="3334" /> -->

@@ -1,0 +1,55 @@
+<StackLayout class="Whole">
+
+    <!-- <StackLayout *ngIf="!friends">
+        <Label text="Please check your condnection.."></Label>
+    </StackLayout> -->
+
+    <StackLayout class="filters">
+        <Label text="filters"></Label>
+    </StackLayout>
+
+    <ListView [items]="friends" height="100%">
+        <StackLayout class="eventBox">
+
+            <ng-template let-item="item">
+
+                <StackLayout class="event">
+
+                    <GridLayout columns="150,*">
+
+                        <StackLayout class="user-img" col="0">
+
+                            <Image [src]="item.photoUrl"></Image>
+
+                        </StackLayout>
+
+                        <GridLayout rows="35,*,50" class="user-info" col="1">
+
+                            <StackLayout row="0">
+                                <Label class="title" textWrap="true" [text]="item.username"></Label>
+                            </StackLayout>
+
+                            <Gridlayout rows="50" row="1">
+                                <Label row="0" class="eventinfo" textWrap="true" [text]="item.bio"></Label>
+                            </Gridlayout>
+
+                            <GridLayout class="buttons" row="2" columns="*,*">
+                                <Button class="vpf" col="0" text="View Profile" (tap)="viewProfile(item)"></Button>
+                                <Button class="unf" col="1" text="Unfriend"></Button>
+                            </GridLayout>
+
+                        </GridLayout>
+
+                    </GridLayout>
+
+                </StackLayout>
+
+            </ng-template>
+
+        </StackLayout>
+    </ListView>
+
+
+</StackLayout>
+
+<!-- <Button text="tap" (tap)="getAllUsers()"></Button> -->
